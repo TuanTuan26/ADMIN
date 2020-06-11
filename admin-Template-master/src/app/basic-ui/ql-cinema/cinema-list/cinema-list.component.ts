@@ -16,7 +16,7 @@ export class CinemaListComponent implements OnInit {
   cinemas: CinemaModel[] = [];
   totalRecords: Number;
   page: Number = 1;
-  searchText: string = '';
+  searchText;
 
   constructor(
     private cinemaService: CinemaServiceService,

@@ -9,13 +9,13 @@ import { CinemaCreateComponent } from './cinema-create/cinema-create.component';
 import { CinemaDeleteComponent } from './cinema-delete/cinema-delete.component';
 import { CinemaListComponent } from './cinema-list/cinema-list.component';
 import { CinemaRoutingModule } from './cinema-routing.module';
-import { SearchPipe } from './cinema-list/search.pipe';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
 
 
 
 
 @NgModule({
-  declarations: [CinemaCreateComponent, CinemaListComponent, CinemaDeleteComponent, SearchPipe],
+  declarations: [CinemaCreateComponent, CinemaListComponent, CinemaDeleteComponent],
   exports: [CinemaCreateComponent],
   imports: [
     CommonModule,
@@ -23,6 +23,7 @@ import { SearchPipe } from './cinema-list/search.pipe';
     NgxPaginationModule,
     CinemaRoutingModule,
     FormsModule,
+    Ng2SearchPipeModule,
     ReactiveFormsModule
   ],
   entryComponents: [ CinemaDeleteComponent],
