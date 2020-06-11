@@ -26,11 +26,13 @@ export class CinemaCreateComponent implements OnInit {
       introduce: ['', Validators.required],
     });
     this.route.data.subscribe(({cinema}) => {
+
       this.isUpdate = cinema && cinema.id !== undefined;
+      console.log(this.isUpdate);
       if (this.isUpdate) {
         this.form.patchValue({
           id: cinema.id,
-          name: cinema.code,
+          name: cinema.name,
           address: cinema.address,
           introduce: cinema.introduce,
         });
@@ -41,11 +43,11 @@ export class CinemaCreateComponent implements OnInit {
     const cinema = this.form.value;
     if (this.isUpdate) {
       this.cinemaService.update(cinema).subscribe(
-        () => this.router.navigateByUrl('/cinema'),
+        () => this.router.navigateByUrl('/basic-ui/ql-cinema'),
         error => console.log(error));
     } else {
       this.cinemaService.create(cinema).subscribe(
-        () => this.router.navigateByUrl('/cinema'),
+        () => this.router.navigateByUrl('/basic-ui/ql-cinema'),
         error => console.log(error));
     }
   }

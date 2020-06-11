@@ -1,4 +1,4 @@
-<div class="tittle-bt" ><button type="button" class="btn btn-primary" [routerLink]="['/']"> <i class="mdi mdi-bookmark-plus"></i>Thêm mới</button></div>
+<div class="tittle-bt" ><button type="button" class="btn btn-primary" [routerLink]="['/basic-ui/ql-cinema/create']"> <i class="mdi mdi-bookmark-plus"></i>Thêm mới</button></div>
 
 <div class="col-lg-12 grid-margin stretch-card">
   <div class="card">
@@ -42,7 +42,7 @@
               </td>
               <td class="action">
                 <a href="#" title="Xóa" (click)="goToDelete(cinema)"><i class="mdi btn-delete mdi-delete"></i></a>
-                <a href="#" title="Cập nhật" [routerLink]="['/cinema/update', cinema.id]"><i class="mdi btn-update mdi-bookmark-plus"></i></a>
+                <a href="#" title="Cập nhật" [routerLink]="['/basic-ui/ql-cinema/update', cinema.id]"><i class="mdi btn-update mdi-bookmark-plus"></i></a>
               </td>
             </tr>
 
