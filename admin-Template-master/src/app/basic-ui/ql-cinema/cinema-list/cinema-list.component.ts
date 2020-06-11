@@ -4,6 +4,8 @@ import { CinemaServiceService } from 'src/app/service/cinema-service.service';
 import { EventManagement } from 'src/app/service/event.management';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { CinemaDeleteComponent } from '../cinema-delete/cinema-delete.component';
+import * as _ from 'lodash';
+
 
 @Component({
   selector: 'app-cinema-list',
@@ -11,8 +13,11 @@ import { CinemaDeleteComponent } from '../cinema-delete/cinema-delete.component'
   styleUrls: ['./cinema-list.component.scss']
 })
 export class CinemaListComponent implements OnInit {
-
   cinemas: CinemaModel[] = [];
+  totalRecords: Number;
+  page: Number = 1;
+  searchText: string = '';
+
   constructor(
     private cinemaService: CinemaServiceService,
     private eventManagement: EventManagement,
@@ -20,8 +25,11 @@ export class CinemaListComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+
     this.loadCinema();
     this.eventManagement.subscribe('UPDATE_CINEMA', () => this.loadCinema());
+    this.totalRecords = this.cinemas.length;
+
   }
 
   loadCinema() {
@@ -29,10 +37,14 @@ export class CinemaListComponent implements OnInit {
       this.cinemas = cinemas;
     }, error => console.log(error));
   }
-  goToDelete(product: CinemaModel) {
+  goToDelete(cinema: CinemaModel) {
     const modalRef = this.modal.open(CinemaDeleteComponent);
-    modalRef.componentInstance.product = product;
+    modalRef.componentInstance.cinema = cinema;
   }
+  public orderBy( key , dir) {
+    this.cinemas = _.orderBy(this.cinemas, key , dir);
+  }
+
 
 
 }

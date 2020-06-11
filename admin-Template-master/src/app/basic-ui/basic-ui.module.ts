@@ -12,6 +12,7 @@ import { QlSeatComponent } from './ql-seat/ql-seat.component';
 
 
 
+
 const routes: Routes = [
   { path: 'accordions', component: AccordionsComponent },
   { path: 'ql-category', component: QlCategoryComponent },

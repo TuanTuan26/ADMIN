@@ -21,6 +21,7 @@ export class CinemaCreateComponent implements OnInit {
 
   ngOnInit() {
     this.form = this.fb.group({
+      id: [''],
       name: ['', Validators.required],
       address: ['', Validators.required],
       introduce: ['', Validators.required],
@@ -28,7 +29,7 @@ export class CinemaCreateComponent implements OnInit {
     this.route.data.subscribe(({cinema}) => {
 
       this.isUpdate = cinema && cinema.id !== undefined;
-      console.log(this.isUpdate);
+
       if (this.isUpdate) {
         this.form.patchValue({
           id: cinema.id,
@@ -36,6 +37,7 @@ export class CinemaCreateComponent implements OnInit {
           address: cinema.address,
           introduce: cinema.introduce,
         });
+
       }
     });
   }
