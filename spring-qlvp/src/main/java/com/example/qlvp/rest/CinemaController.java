@@ -18,10 +18,7 @@ public class CinemaController {
 
     @GetMapping
     public List<Cinema> findAll() {
-        List<Cinema> list = cinemaService.findAll();
-        for (Cinema cinema: list) {
-            System.out.println(cinema.getAddress());
-        }
+
         return cinemaService.findAll();
     }
 
