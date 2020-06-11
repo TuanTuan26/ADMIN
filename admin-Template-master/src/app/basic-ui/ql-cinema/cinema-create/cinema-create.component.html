@@ -1,0 +1,24 @@
+<p>cinema-create works!</p>
+<div class="col-md-12">
+  <h3>Form create(update) cinema</h3>
+  <form class="col-md-12" [noValidate]="true" [formGroup]="form" (ngSubmit)="doSubmit()">
+
+    <div class="form-group" >
+      <label  for="name">Name:</label>
+      <input class="form-control" id="name" formControlName="name"/>
+    </div>
+    <div class="form-group">
+      <label   for="address">Price:</label>
+      <input class="form-control" id="address" formControlName="address"/>
+    </div>
+    <div class="form-group">
+      <label  for="introduce">Introduce:</label>
+      <textarea class="form-control" id="introduce" formControlName="introduce" rows="3"></textarea>
+    </div>
+    <div>
+      <button class="btn btn-outline-primary btn-sm" type="submit" *ngIf="!isUpdate">Save</button>
+      <button class="btn btn-outline-primary btn-sm" type="submit" *ngIf="isUpdate">Update</button>
+      <button class="btn btn-sm" [routerLink]="['/cinema']">Cancel</button>
+    </div>
+  </form>
+</div>
