@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { QlCategoryComponent } from './ql-category.component';
+import { CategoryDeleteComponent } from './category-delete.component';
 
-describe('QlCategoryComponent', () => {
-  let component: QlCategoryComponent;
-  let fixture: ComponentFixture<QlCategoryComponent>;
+describe('CategoryDeleteComponent', () => {
+  let component: CategoryDeleteComponent;
+  let fixture: ComponentFixture<CategoryDeleteComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ QlCategoryComponent ]
+      declarations: [ CategoryDeleteComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(QlCategoryComponent);
+    fixture = TestBed.createComponent(CategoryDeleteComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

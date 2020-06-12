@@ -64,8 +64,6 @@ export class RoomCreateComponent implements OnInit {
     doSubmit() {
       const room = this.form.value;
       const id = this.form.value.cinema;
-      console.log(id);
-
       if (this.isUpdate) {
 
         this.roomService.update( id, room).subscribe(

@@ -12,12 +12,12 @@
       <label  for="character">Đặc điểm:</label>
       <textarea class="form-control" id="character" formControlName="character" rows="3"></textarea>
     </div>
-    <label for="cinema">Chọn Phòng Rạp</label>
+    <label for="cinema">Chọn Rạp</label>
     <select class="chonrap" formControlName="cinema" >
         <option *ngFor="let cinema of cinemas" [ngValue]="cinema.id" >{{cinema.name}}</option>
     </select>
 
-    <div>
+    <div class="room-list">
       <button class="btn btn-outline-primary btn-sm" type="submit" *ngIf="!isUpdate">Save</button>
       <button class="btn btn-outline-primary btn-sm" type="submit" *ngIf="isUpdate">Update</button>
       <button class="btn btn-sm" [routerLink]="['/basic-ui/ql-room']">Cancel</button>
