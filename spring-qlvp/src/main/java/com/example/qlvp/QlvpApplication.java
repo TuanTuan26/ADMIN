@@ -7,6 +7,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class QlvpApplication {
 
     public static void main(String[] args) {
+
         SpringApplication.run(QlvpApplication.class, args);
     }
 

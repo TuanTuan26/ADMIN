@@ -12,7 +12,7 @@ public class FilmCategory {
 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "TBL_FILM_CATEGORY_SEQ")
-    @SequenceGenerator(name = "TBL_FILM_CATEGORY_SEQ", sequenceName = "TTBL_FILM_CATEGORY_SEQ", allocationSize = 1)
+    @SequenceGenerator(name = "TBL_FILM_CATEGORY_SEQ", sequenceName = "TBL_FILM_CATEGORY_SEQ", allocationSize = 1)
     private Long id;
 
     @OneToOne

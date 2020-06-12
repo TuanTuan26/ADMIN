@@ -44,9 +44,8 @@ public class Film {
     @Column(name = "CREATE_DATE")
     private Date creatDate;
 
-    @OneToOne
-    @JoinColumn(name = "USERNAME")
-    User user;
+    @Column(name = "USERNAME")
+    private String userName;
 
     @OneToMany(fetch = FetchType.LAZY)
     @JoinColumn(name = "ID")
