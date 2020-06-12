@@ -27,7 +27,9 @@ export class CinemaListComponent implements OnInit {
   ngOnInit() {
 
     this.loadCinema();
+
     this.eventManagement.subscribe('UPDATE_CINEMA', () => this.loadCinema());
+
     this.totalRecords = this.cinemas.length;
 
   }
@@ -35,6 +37,7 @@ export class CinemaListComponent implements OnInit {
   loadCinema() {
     this.cinemaService.fetch().subscribe(cinemas => {
       this.cinemas = cinemas;
+
     }, error => console.log(error));
   }
   goToDelete(cinema: CinemaModel) {

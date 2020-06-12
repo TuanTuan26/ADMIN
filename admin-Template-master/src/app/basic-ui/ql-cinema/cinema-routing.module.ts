@@ -6,6 +6,7 @@ import { CinemaCreateComponent } from './cinema-create/cinema-create.component';
 import { CinemaServiceService } from 'src/app/service/cinema-service.service';
 import { CinemaModel } from 'src/app/model/Cinema';
 
+
 @Injectable({providedIn: 'root'})
 export class CinemaResolver implements Resolve<CinemaModel> {
   constructor(private cinemaService: CinemaServiceService) {}

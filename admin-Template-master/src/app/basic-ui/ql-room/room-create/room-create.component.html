@@ -1,0 +1,26 @@
+
+<div class="col-md-12">
+  <h3>Form create(update) room</h3>
+  <form class="col-md-12" [noValidate]="true" [formGroup]="form" (ngSubmit)="doSubmit()">
+
+    <div class="form-group" >
+      <label  for="name">Name:</label>
+      <input class="form-control" id="name" formControlName="name"/>
+    </div>
+
+    <div class="form-group">
+      <label  for="character">Đặc điểm:</label>
+      <textarea class="form-control" id="character" formControlName="character" rows="3"></textarea>
+    </div>
+    <label for="cinema">Chọn Phòng Rạp</label>
+    <select class="chonrap" formControlName="cinema" >
+        <option *ngFor="let cinema of cinemas" [ngValue]="cinema.id" >{{cinema.name}}</option>
+    </select>
+
+    <div>
+      <button class="btn btn-outline-primary btn-sm" type="submit" *ngIf="!isUpdate">Save</button>
+      <button class="btn btn-outline-primary btn-sm" type="submit" *ngIf="isUpdate">Update</button>
+      <button class="btn btn-sm" [routerLink]="['/basic-ui/ql-room']">Cancel</button>
+    </div>
+  </form>
+</div>

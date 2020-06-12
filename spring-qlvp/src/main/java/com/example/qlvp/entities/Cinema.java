@@ -3,6 +3,7 @@ package com.example.qlvp.entities;
 import lombok.Data;
 
 import javax.persistence.*;
+import java.util.Set;
 
 @Entity
 @Table(name = "TBL_CINEMA")
@@ -21,6 +22,10 @@ public class Cinema {
 
     @Column(name = "INTRODUCE")
     private String introduce;
+
+    @OneToMany(fetch = FetchType.LAZY)
+    @JoinColumn(name = "ID")
+    Set<Room> rooms;
 
 
 
