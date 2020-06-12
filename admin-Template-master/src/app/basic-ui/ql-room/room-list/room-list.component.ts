@@ -5,8 +5,7 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { RoomService } from 'src/app/service/room.service';
 import { EventManagement } from 'src/app/service/event.management';
 import { RoomDeleteComponent } from '../room-delete/room-delete.component';
-import { CinemaServiceService } from 'src/app/service/cinema-service.service';
-import { CinemaModel } from 'src/app/model/Cinema';
+
 
 @Component({
   selector: 'app-room-list',
@@ -43,6 +42,7 @@ export class RoomListComponent implements OnInit {
   goToDelete(room: RoomModel) {
     const modalRef = this.modal.open(RoomDeleteComponent);
     modalRef.componentInstance.room = room;
+    console.log(room)
   }
   public orderBy( key , dir) {
     this.rooms = _.orderBy(this.rooms, key , dir);

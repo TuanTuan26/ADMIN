@@ -1,0 +1,31 @@
+
+<div class="col-md-6">
+  <h3>Form create(update) Seat</h3>
+  <form class="col-md-6" [noValidate]="true" [formGroup]="form" (ngSubmit)="doSubmit()">
+
+    <div class="form-group" >
+      <label  for="name">Tên Ghế:</label>
+      <input class="form-control" id="name" formControlName="name"/>
+    </div>
+
+    <div class="form-group">
+      <label  for="type">Loại Ghế:</label>
+      <input class="form-control" id="type" formControlName="type" />
+    </div>
+
+    <div class="form-group">
+      <label  for="status">Trạng Thái:</label>
+      <input class="form-control" id="status" formControlName="status" />
+    </div>
+    <label for="room">Chọn Phòng</label>
+    <select class="chonrap" formControlName="room" >
+      <option *ngFor="let room of rooms" [ngValue]="room.id" >{{room.name}}</option>
+    </select>
+
+    <div>
+      <button class="btn btn-outline-primary btn-sm" type="submit" *ngIf="!isUpdate">Save</button>
+      <button class="btn btn-outline-primary btn-sm" type="submit" *ngIf="isUpdate">Update</button>
+      <button class="btn btn-sm" [routerLink]="['/basic-ui/ql-seat']">Cancel</button>
+    </div>
+  </form>
+</div>
