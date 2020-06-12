@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { QlSeatComponent } from './ql-seat.component';
+import { SeatDeleteComponent } from './seat-delete.component';
 
-describe('QlSeatComponent', () => {
-  let component: QlSeatComponent;
-  let fixture: ComponentFixture<QlSeatComponent>;
+describe('SeatDeleteComponent', () => {
+  let component: SeatDeleteComponent;
+  let fixture: ComponentFixture<SeatDeleteComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ QlSeatComponent ]
+      declarations: [ SeatDeleteComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(QlSeatComponent);
+    fixture = TestBed.createComponent(SeatDeleteComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
