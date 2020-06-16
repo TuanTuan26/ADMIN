@@ -1,12 +1,12 @@
-import { Component, OnInit } from '@angular/core';
-import { Observable, Subject } from 'rxjs';
-import { CinemaModel } from 'src/app/model/Cinema';
-import { CinemaServiceService } from 'src/app/service/cinema-service.service';
-import { startWith, map } from 'rxjs/operators';
-import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
-import { Router, ActivatedRoute } from '@angular/router';
-import { RoomService } from 'src/app/service/room.service';
-import { EventManagement } from 'src/app/service/event.management';
+import {Component, OnInit} from '@angular/core';
+import {Observable, Subject} from 'rxjs';
+import {CinemaModel} from 'src/app/model/Cinema';
+import {CinemaServiceService} from 'src/app/service/cinema-service.service';
+import {startWith, map} from 'rxjs/operators';
+import {FormGroup, FormBuilder, Validators, FormControl} from '@angular/forms';
+import {Router, ActivatedRoute} from '@angular/router';
+import {RoomService} from 'src/app/service/room.service';
+import {EventManagement} from 'src/app/service/event.management';
 
 @Component({
   selector: 'app-room-create',
@@ -16,8 +16,8 @@ import { EventManagement } from 'src/app/service/event.management';
 export class RoomCreateComponent implements OnInit {
   cinemas: CinemaModel[] = [];
   form: FormGroup;
-  selectFormControl  = new FormControl('', Validators.required);
   isUpdate: any = false;
+
   constructor(
     private fb: FormBuilder,
     private router: Router,
@@ -25,7 +25,8 @@ export class RoomCreateComponent implements OnInit {
     private roomService: RoomService,
     private eventManagement: EventManagement,
     private cinemaService: CinemaServiceService
-    ) { }
+  ) {
+  }
 
   ngOnInit() {
     this.loadCinema();
@@ -48,34 +49,33 @@ export class RoomCreateComponent implements OnInit {
           cinema: room.cinema.id,
           character: room.character,
         });
-        console.log(room.cinema);
 
 
       }
     });
   }
 
-    loadCinema() {
-      this.cinemaService.fetch().subscribe(cinemas => {
-        this.cinemas = cinemas;
+  loadCinema() {
+    this.cinemaService.fetch().subscribe(cinemas => {
+      this.cinemas = cinemas;
 
-      }, error => console.log(error));
+    }, error => console.log(error));
+  }
+
+  doSubmit() {
+    const room = this.form.value;
+    console.log(room)
+    if (this.isUpdate) {
+
+      this.roomService.update(room).subscribe(
+        () => this.router.navigateByUrl('/basic-ui/ql-room'),
+        error => console.log(error));
+    } else {
+      this.roomService.create(room).subscribe(
+        () => this.router.navigateByUrl('/basic-ui/ql-room'),
+        error => console.log(error));
     }
-    doSubmit() {
-      const room = this.form.value;
-      const id = this.form.value.cinema;
-      if (this.isUpdate) {
-
-        this.roomService.update( id, room).subscribe(
-          () => this.router.navigateByUrl('/basic-ui/ql-room'),
-          error => console.log(error));
-      } else {
-        this.roomService.create( id, room).subscribe(
-          () => this.router.navigateByUrl('/basic-ui/ql-room'),
-          error => console.log(error));
-      }
-    }
-
+  }
 
 
 }

@@ -22,12 +22,12 @@ export class SeatService {
   delete(id: number) {
     return this.http.delete(`${ENDPOINT_URL}/seat/${id}`);
   }
-  create(id: any, seat: SeatModel): Observable<SeatModel> {
-    return this.http.post<SeatModel>(`${ENDPOINT_URL}/seat/${id}`, seat);
+  create( seat: SeatModel): Observable<SeatModel> {
+    return this.http.post<SeatModel>(`${ENDPOINT_URL}/seat`, seat);
   }
 
-  update(id: any, seat: SeatModel) {
-    return this.http.put(`${ENDPOINT_URL}/seat/${id}`, seat);
+  update( seat: SeatModel) {
+    return this.http.put(`${ENDPOINT_URL}/seat`, seat);
   }
 
 }

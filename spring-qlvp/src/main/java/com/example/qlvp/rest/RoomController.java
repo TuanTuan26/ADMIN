@@ -30,11 +30,10 @@ public class RoomController {
         return roomService.findAll();
     }
 
-    @PostMapping("/{id}")
-    public Room save(@RequestBody RoomRequest roomRequest,@PathVariable Long id) {
+    @PostMapping()
+    public Room save(@RequestBody RoomRequest roomRequest) {
         Cinema cinema = new Cinema();
-        Optional<Long> optional = cinemaService.findOne(id).map(Cinema::getId);
-        cinema.setId(optional.get());
+        cinema.setId(roomRequest.getCinema());
         Room room = new Room();
         room.setName(roomRequest.getName());
         room.setCharacter(roomRequest.getCharacter());
@@ -43,10 +42,10 @@ public class RoomController {
         return roomService.save(room);
     }
 
-    @PutMapping("/{id}")
-    public ResponseEntity<Void> update(@RequestBody RoomRequest roomRequest, @PathVariable Long id) {
+    @PutMapping()
+    public ResponseEntity<Void> update(@RequestBody RoomRequest roomRequest) {
         Cinema cinema = new Cinema();
-        Optional<Long> optional = cinemaService.findOne(id).map(Cinema::getId);
+        Optional<Long> optional = cinemaService.findOne(roomRequest.getCinema()).map(Cinema::getId);
         cinema.setId(optional.get());
         Room room = new Room();
         room.setId(roomRequest.getId());

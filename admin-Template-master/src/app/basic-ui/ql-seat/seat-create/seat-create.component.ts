@@ -32,9 +32,7 @@ export class SeatCreateComponent implements OnInit {
       room: ['', Validators.required],
       status: ['', Validators.required],
     });
-    console.log(this.route.data)
     this.route.data.subscribe(({seat}) => {
-      console.log(seat)
       this.isUpdate = seat && seat.id !== undefined;
 
       if (this.isUpdate) {
@@ -56,16 +54,14 @@ export class SeatCreateComponent implements OnInit {
   }
   doSubmit() {
     const seat = this.form.value;
-
-    const id = this.form.value.room;
     console.log(seat)
     if (this.isUpdate) {
-      this.seatService.update(id,seat).subscribe(
+      this.seatService.update(seat).subscribe(
 
         () => this.router.navigateByUrl('/basic-ui/ql-seat'),
         error => console.log(error));
     } else {
-      this.seatService.create(id,seat).subscribe(
+      this.seatService.create(seat).subscribe(
         () => this.router.navigateByUrl('/basic-ui/ql-seat'),
         error => console.log(error));
     }

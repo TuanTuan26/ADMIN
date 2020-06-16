@@ -18,12 +18,12 @@ export class RoomService {
     return this.http.get<RoomModel>(`${ENDPOINT_URL}/room/${id}`);
   }
 
-  create(id: any, room: RoomModel): Observable<RoomModel> {
-    return this.http.post<RoomModel>(`${ENDPOINT_URL}/room/${id}`, room);
+  create( room: RoomModel): Observable<RoomModel> {
+    return this.http.post<RoomModel>(`${ENDPOINT_URL}/room`, room);
   }
 
-  update(id: any, room: RoomModel) {
-    return this.http.put(`${ENDPOINT_URL}/room/${id}`, room);
+  update( room: RoomModel) {
+    return this.http.put(`${ENDPOINT_URL}/room`, room);
   }
 
   delete(id: number) {

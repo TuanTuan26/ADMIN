@@ -33,11 +33,10 @@ public class SeatController {
         return seatService.findAll();
     }
 
-    @PostMapping("/{id}")
-    public Seat save(@RequestBody SeatRequest seatRequest, @PathVariable Long id) {
+    @PostMapping()
+    public Seat save(@RequestBody SeatRequest seatRequest) {
         Room room = new Room();
-        Optional<Long> optional = roomService.findOne(id).map(Room::getId);
-        room.setId(optional.get());
+        room.setId(seatRequest.getRoom());
         Seat seat = new Seat();
         seat.setName(seatRequest.getName());
         seat.setType(seatRequest.getType());
@@ -47,10 +46,10 @@ public class SeatController {
         return seatService.save(seat);
     }
 
-    @PutMapping("/{id}")
-    public ResponseEntity<Void> update(@RequestBody SeatRequest seatRequest, @PathVariable Long id) {
+    @PutMapping()
+    public ResponseEntity<Void> update(@RequestBody SeatRequest seatRequest) {
         Room room = new Room();
-        Optional<Long> optional = roomService.findOne(id).map(Room::getId);
+        Optional<Long> optional = roomService.findOne(seatRequest.getRoom()).map(Room::getId);
         room.setId(optional.get());
         Seat seat = new Seat();
         seat.setId(seatRequest.getId());
