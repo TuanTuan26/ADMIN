@@ -1,7 +1,8 @@
-package com.example.qlvp.service;
+package com.example.qlvp.service.Impl;
 
 import com.example.qlvp.entities.Cinema;
 import com.example.qlvp.repository.CinemaRepository;
+import com.example.qlvp.service.CinemaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
