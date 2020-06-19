@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { QlFilmComponent } from './ql-film.component';
+import { FilmDeleteComponent } from './film-delete.component';
 
-describe('QlFilmComponent', () => {
-  let component: QlFilmComponent;
-  let fixture: ComponentFixture<QlFilmComponent>;
+describe('FilmDeleteComponent', () => {
+  let component: FilmDeleteComponent;
+  let fixture: ComponentFixture<FilmDeleteComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ QlFilmComponent ]
+      declarations: [ FilmDeleteComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(QlFilmComponent);
+    fixture = TestBed.createComponent(FilmDeleteComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

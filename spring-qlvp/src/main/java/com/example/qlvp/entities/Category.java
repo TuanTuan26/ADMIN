@@ -17,8 +17,5 @@ public class Category {
     @Column(name = "NAME")
     private String name;
 
-    @OneToMany(fetch = FetchType.LAZY)
-    @JoinColumn(name = "ID")
-    Set<FilmCategory> filmCategories;
 
 }

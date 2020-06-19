@@ -38,7 +38,6 @@ public class RoomController {
         room.setName(roomRequest.getName());
         room.setCharacter(roomRequest.getCharacter());
         room.setCinema(cinema);
-
         return roomService.save(room);
     }
 

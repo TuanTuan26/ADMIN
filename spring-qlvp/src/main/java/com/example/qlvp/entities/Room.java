@@ -1,8 +1,10 @@
 package com.example.qlvp.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 
 import javax.persistence.*;
+import java.util.Set;
 
 @Entity
 @Table(name = "TBL_ROOM")
@@ -19,10 +21,15 @@ public class Room {
     @Column(name = "CHARACTERISTICS")
     private String character;
 
-    @OneToOne
-    @JoinColumn(name = "CINEMA_ID")
-    Cinema cinema;
 
+    @OneToOne
+    @JoinColumn(name="CINEMA_ID")
+    private Cinema cinema;
+
+    @JsonIgnore
+    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @JoinColumn(name = "ID")
+    private Set<Seat> seats;
 
 
 }
