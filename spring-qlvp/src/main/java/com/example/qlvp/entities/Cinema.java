@@ -25,7 +25,8 @@ public class Cinema {
     private String introduce;
     
     @JsonIgnore
-    @OneToMany(fetch = FetchType.LAZY,mappedBy="cinema", cascade = CascadeType.ALL)
+    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @JoinColumn(name = "ID")
     private Set<Room> rooms;
 
 
