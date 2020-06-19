@@ -22,10 +22,13 @@ public class Room {
     private String character;
 
 
-    @ManyToOne(cascade = CascadeType.ALL)
+    @OneToOne
+    @JoinColumn(name="CINEMA_ID")
     private Cinema cinema;
+
     @JsonIgnore
-    @OneToMany(fetch = FetchType.LAZY,mappedBy="room", cascade = CascadeType.ALL)
+    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @JoinColumn(name = "ID")
     private Set<Seat> seats;
 
 

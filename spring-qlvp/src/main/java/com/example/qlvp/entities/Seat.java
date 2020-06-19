@@ -24,6 +24,7 @@ public class Seat {
     private long status;
 
 
-    @ManyToOne(cascade = CascadeType.ALL)
-    Room room;
+    @OneToOne
+    @JoinColumn(name= "ROOM_ID")
+    private Room room;
 }
