@@ -20,6 +20,7 @@ import { SpinnerComponent } from './shared/spinner/spinner.component';
 import { ContentAnimateDirective } from './shared/directives/content-animate.directive';
 import { TodoListComponent } from './apps/todo-list/todo-list.component';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import {MaterialModule} from './material.module';
 
 
 @NgModule({
@@ -46,7 +47,8 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
     BrowserAnimationsModule,
     FormsModule,
     ReactiveFormsModule,
-    ChartsModule
+    ChartsModule,
+    MaterialModule
   ],
   providers: [],
   bootstrap: [AppComponent]
