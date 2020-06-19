@@ -1,8 +1,7 @@
-package com.example.qlvp.service.impl;
+package com.example.qlvp.service;
 
 import com.example.qlvp.entities.Category;
 import com.example.qlvp.repository.CategoryRepository;
-import com.example.qlvp.service.CategoryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -12,7 +11,7 @@ import java.util.Optional;
 
 @Transactional
 @Service
-public class CategoryServiceImpl implements CategoryService {
+public class CategoryServiceImpl implements  CategoryService {
 
     @Autowired
     private CategoryRepository categoryRepository;
