@@ -11,7 +11,9 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { FilmCreateComponent } from './film-create/film-create.component';
 import { FilmDeleteComponent } from './film-delete/film-delete.component';
 import { FilmListComponent } from './film-list/film-list.component';
-
+import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatSelectModule} from '@angular/material/select';
 
 
 
@@ -22,7 +24,10 @@ import { FilmListComponent } from './film-list/film-list.component';
     CommonModule,
     NgbModule,
     NgxPaginationModule,
+    MatFormFieldModule,
+    MatSelectModule,
     FilmRoutingModule,
+    CKEditorModule,
     FormsModule,
     Ng2SearchPipeModule,
     ReactiveFormsModule

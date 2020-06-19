@@ -7,13 +7,19 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 import org.springframework.web.filter.CorsFilter;
-import org.springframework.web.servlet.config.annotation.EnableWebMvc;
-import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
+import org.springframework.web.servlet.config.annotation.*;
 
 @Configuration
 @EnableWebMvc
-public class WebConfig  implements WebMvcConfigurer {
+public class WebConfig extends WebMvcConfigurerAdapter implements WebMvcConfigurer {
     private Logger log = LoggerFactory.getLogger(WebConfig.class);
+
+    @Override
+    public void addResourceHandlers(ResourceHandlerRegistry registry) {
+        //   file:D:\\data\\file\\image\\
+        registry.addResourceHandler("/static/**").addResourceLocations("classpath:/static/");
+        super.addResourceHandlers(registry);
+    }
 
     @Bean
     public CorsFilter corsFilter() {
@@ -30,4 +36,6 @@ public class WebConfig  implements WebMvcConfigurer {
         }
         return new CorsFilter(source);
     }
+
+
 }

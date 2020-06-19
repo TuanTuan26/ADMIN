@@ -32,7 +32,7 @@ const routes: Routes = [
     path: 'update/:id',
     component: FilmCreateComponent,
     resolve: {
-      cinema : FilmResolver
+      film : FilmResolver
     }
   },
   // {

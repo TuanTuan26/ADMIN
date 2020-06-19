@@ -1,4 +1,4 @@
-package com.example.qlvp.service.Impl;
+package com.example.qlvp.service.impl;
 
 import com.example.qlvp.entities.Cinema;
 import com.example.qlvp.repository.CinemaRepository;

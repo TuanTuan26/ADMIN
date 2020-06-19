@@ -1,5 +1,6 @@
 package com.example.qlvp.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 
 import javax.persistence.*;
@@ -22,10 +23,10 @@ public class Cinema {
 
     @Column(name = "INTRODUCE")
     private String introduce;
-
-    @OneToMany(fetch = FetchType.LAZY)
-    @JoinColumn(name = "ID")
-    Set<Room> rooms;
+    
+    @JsonIgnore
+    @OneToMany(fetch = FetchType.LAZY,mappedBy="cinema", cascade = CascadeType.ALL)
+    private Set<Room> rooms;
 
 
 

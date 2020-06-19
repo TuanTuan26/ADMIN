@@ -10,5 +10,5 @@ export class FilmModel {
   language?: string;
   userName?: string;
   time?: number;
-  categories?: [];
+  categories?: any = [];
 }

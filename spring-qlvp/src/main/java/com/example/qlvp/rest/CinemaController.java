@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+@CrossOrigin(origins = "http://localhost:4200/", maxAge = 3600)
 @RestController
 @RequestMapping("/api/cinema")
 public class CinemaController {
@@ -28,14 +29,14 @@ public class CinemaController {
     }
 
     @PutMapping
-    public ResponseEntity<Void> update(@RequestBody Cinema product) {
-        cinemaService.update(product);
+    public ResponseEntity<Void> update(@RequestBody Cinema cinema) {
+        cinemaService.update(cinema);
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
     @GetMapping("/{id}")
     public ResponseEntity<Cinema> findOne(@PathVariable Long id) {
-        return cinemaService.findOne(id).map(product -> new ResponseEntity<>(product, HttpStatus.OK))
+        return cinemaService.findOne(id).map(cinema -> new ResponseEntity<>(cinema, HttpStatus.OK))
                 .orElse(new ResponseEntity<>(HttpStatus.NOT_FOUND));
     }
 

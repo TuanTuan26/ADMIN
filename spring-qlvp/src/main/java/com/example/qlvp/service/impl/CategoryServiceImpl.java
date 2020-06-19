@@ -1,4 +1,4 @@
-package com.example.qlvp.service.Impl;
+package com.example.qlvp.service.impl;
 
 import com.example.qlvp.entities.Category;
 import com.example.qlvp.repository.CategoryRepository;

@@ -20,6 +20,7 @@ import { SpinnerComponent } from './shared/spinner/spinner.component';
 import { ContentAnimateDirective } from './shared/directives/content-animate.directive';
 import { TodoListComponent } from './apps/todo-list/todo-list.component';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
 
 
 @NgModule({
@@ -39,6 +40,7 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
   imports: [
     HttpClientModule,
     BrowserModule,
+    CKEditorModule,
     Ng2SearchPipeModule,
     AppRoutingModule,
     NgbModule,

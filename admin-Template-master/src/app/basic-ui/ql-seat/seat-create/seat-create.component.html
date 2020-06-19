@@ -17,10 +17,10 @@
       <label  for="status">Trạng Thái:</label>
       <input class="form-control" id="status" formControlName="status" />
     </div>
-    <label for="room">Chọn Phòng</label>
+    <label for="room">Chọn Phòng</label><br>
     <select class="chonrap" formControlName="room" >
       <option *ngFor="let room of rooms" [ngValue]="room.id" >{{room.name}}</option>
-    </select>
+    </select><br>
 
     <div>
       <button class="btn btn-outline-primary btn-sm" type="submit" *ngIf="!isUpdate">Save</button>

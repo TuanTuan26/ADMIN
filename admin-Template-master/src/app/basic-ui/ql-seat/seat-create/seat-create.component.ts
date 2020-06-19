@@ -4,6 +4,7 @@ import {ActivatedRoute, Router} from '@angular/router';
 import {SeatService} from '../../../service/seat.service';
 import {RoomModel} from '../../../model/Room';
 import {RoomService} from '../../../service/room.service';
+import { EventManagement } from 'src/app/service/event.management';
 
 @Component({
   selector: 'app-seat-create',
@@ -17,14 +18,17 @@ export class SeatCreateComponent implements OnInit {
   constructor(private fb: FormBuilder,
               private router: Router,
               private route: ActivatedRoute,
-              private seatService :SeatService,
+              private seatService: SeatService,
+              private eventManagement: EventManagement,
               private roomService: RoomService,
               ) {
 
   }
 
   ngOnInit() {
-    this.loadRoom()
+    this.loadRoom();
+    this.eventManagement.subscribe('UPDATE_ROOM', () => this.loadRoom());
+
     this.form = this.fb.group({
       id: [''],
       name: ['', Validators.required],
@@ -47,7 +51,7 @@ export class SeatCreateComponent implements OnInit {
     });
   }
   loadRoom() {
-    this.roomService.fetch().subscribe(rooms=> {
+    this.roomService.fetch().subscribe(rooms => {
       this.rooms = rooms;
 
     }, error => console.log(error));

@@ -4,9 +4,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { AccordionsComponent } from './accordions/accordions.component';
-import { FilmCreateComponent } from './ql-film/film-create/film-create.component';
-import { FilmListComponent } from './ql-film/film-list/film-list.component';
-import { FilmDeleteComponent } from './ql-film/film-delete/film-delete.component';
+
 
 
 const routes: Routes = [
