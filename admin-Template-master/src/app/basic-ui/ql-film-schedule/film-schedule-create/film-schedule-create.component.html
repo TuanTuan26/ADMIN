@@ -1,0 +1,35 @@
+<div class="col-md-6">
+  <h3>Form create(update) Seat</h3>
+  <form class="col-md-6" [noValidate]="true" [formGroup]="form" (ngSubmit)="doSubmit()">
+
+    <label >Chọn Khung Giờ</label>
+    <select class="chonrap" formControlName="time" >
+      <option *ngFor="let time of times" [ngValue]="time.id" >{{time.nameTime}}</option>
+    </select>
+
+    <label >Chọn Giá Vé</label>
+    <select class="chonrap" formControlName="ticketPrice" >
+      <option *ngFor="let ticketPrice of ticketPrices" [ngValue]="ticketPrice.id" >{{ticketPrice.price}}</option>
+    </select>
+
+    <label >Chọn Phòng</label>
+    <select class="chonrap" formControlName="room" >
+      <option *ngFor="let room of rooms" [ngValue]="room.id" >{{room.name}}</option>
+    </select>
+    <label >Chon Phim</label>
+    <select class="chonrap" formControlName="film" >
+      <option *ngFor="let film of films" [ngValue]="film.id" >{{film.name}}</option>
+    </select>
+    <div class="form-group">
+      <label  for="day">Ngày</label>
+      <input class="form-control"  id="day" formControlName="day"  />
+    </div>
+
+
+    <div>
+      <button class="btn btn-outline-primary btn-sm" type="submit" *ngIf="!isUpdate">Save</button>
+      <button class="btn btn-outline-primary btn-sm" type="submit" *ngIf="isUpdate">Update</button>
+      <button class="btn btn-sm" [routerLink]="['/basic-ui/ql-filmSchedule']">Cancel</button>
+    </div>
+  </form>
+</div>

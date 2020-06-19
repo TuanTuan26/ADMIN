@@ -7,6 +7,7 @@ import {FormGroup, FormBuilder, Validators, FormControl} from '@angular/forms';
 import {Router, ActivatedRoute} from '@angular/router';
 import {RoomService} from 'src/app/service/room.service';
 import {EventManagement} from 'src/app/service/event.management';
+import {ValidatorUtils} from '../../ql-film-schedule/validator.utils';
 
 @Component({
   selector: 'app-room-create',
@@ -35,8 +36,8 @@ export class RoomCreateComponent implements OnInit {
     this.form = this.fb.group({
       id: [''],
       name: ['', Validators.required],
-      cinema: ['', Validators.required],
-      character: ['', Validators.required],
+      cinema: ['',Validators.required ],
+      character: ['', Validators.minLength(6)],
     });
     this.route.data.subscribe(({room}) => {
 
