@@ -23,7 +23,7 @@ public class Cinema {
 
     @Column(name = "INTRODUCE")
     private String introduce;
-    
+
     @JsonIgnore
     @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinColumn(name = "ID")
