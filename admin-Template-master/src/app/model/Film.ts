@@ -1,4 +1,5 @@
 
+
 export class FilmModel {
   id?: number;
   name?: string;
@@ -11,4 +12,5 @@ export class FilmModel {
   userName?: string;
   time?: number;
   categories?: any = [];
+
 }

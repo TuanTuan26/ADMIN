@@ -30,9 +30,9 @@ public class User {
     @Column(name = "CREATE_DATE")
     private Date createDate;
 
-    @OneToMany(fetch = FetchType.LAZY)
-    @JoinColumn(name = "ID")
-    Set<UserRole> userRoles;
+//    @OneToMany(fetch = FetchType.LAZY)
+//    @JoinColumn(name = "ID")
+//    Set<UserRole> userRoles;
 
 
 }

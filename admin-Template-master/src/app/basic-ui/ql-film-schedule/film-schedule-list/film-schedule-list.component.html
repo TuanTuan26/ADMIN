@@ -1,0 +1,107 @@
+<div class="row tittle-bt">
+  <div  class=" col-sm-12 col-md-4" ><button type="button" class="btn btn-primary" [routerLink]="['/basic-ui/ql-filmSchedule/create']"> <i class="mdi mdi-bookmark-plus"></i>Thêm mới</button></div>
+  <div  class=" col-sm-12 col-md-8" >
+
+    <input class="search-cinema form-control mr-sm-2" type="text" [(ngModel)]="searchText"  placeholder="Search">
+
+  </div>
+
+</div>
+<div class="col-lg-12 grid-margin stretch-card">
+  <div class="card">
+    <div class="card-body" ng-controller="listData">
+      <h4 class="card-title">Lịch Chiếu Phim</h4>
+
+      <div class="table-responsive pt-3">
+        <table class="table table-cinema table-bordered">
+          <thead>
+          <tr>
+            <th style="width: 7% ">
+              Id
+              <div >
+                <i (click)="orderBy('id','asc')" class="mdi mdi-arrow-up-bold-circle"></i>
+                <i (click)="orderBy('id','desc')" class="mdi mdi-arrow-down-bold-circle"></i>
+              </div>
+
+            </th>
+            <th style="width: 10%">
+              Tên Phòng
+
+              <i (click)="orderBy('name','asc')" class="mdi mdi-arrow-up-bold-circle"></i>
+              <i (click)="orderBy('name','desc')" class="mdi mdi-arrow-down-bold-circle"></i>
+            </th>
+            <th style="width: 10%">
+              Tên Phim
+              <div>
+              <i (click)="orderBy('name','asc')" class="mdi mdi-arrow-up-bold-circle"></i>
+              <i (click)="orderBy('name','desc')" class="mdi mdi-arrow-down-bold-circle"></i>
+              </div>
+            </th>
+            <th style="width: 10%">
+              Ngày
+              <div>
+                <i  (click)="orderBy('day','asc')" class="mdi mdi-arrow-up-bold-circle"></i>
+                <i (click)="orderBy('day','desc')" class="mdi mdi-arrow-down-bold-circle"></i>
+              </div>
+
+            </th>
+            <th style="width: 10%">
+              Giá vé cơ bản
+              <div>
+              <i  (click)="orderBy('price','asc')" class="mdi mdi-arrow-up-bold-circle"></i>
+              <i (click)="orderBy('price','desc')" class="mdi mdi-arrow-down-bold-circle"></i>
+              </div>
+            </th>
+            <th style="width: 10%">
+              Khung Giờ
+              <div>
+              <i  (click)="orderBy('startTime','asc')" class="mdi mdi-arrow-up-bold-circle"></i>
+              <i (click)="orderBy('startTime','desc')" class="mdi mdi-arrow-down-bold-circle"></i>
+              </div>
+            </th>
+
+            <th style="width: 15%">
+              Action
+            </th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr *ngFor="let filmSchedule of filmSchedules | filter : searchText  | paginate: { id:'listing_pagination', itemsPerPage: 10, currentPage: page, totalItems: totalRecords } ">
+            <td>
+              {{filmSchedule.id}}
+            </td>
+
+            <td>
+              {{filmSchedule.room.name}}
+            </td>
+            <td>
+              {{filmSchedule.film.name}}
+            </td>
+            <td>
+              {{filmSchedule.day}}
+            </td>
+            <td>
+              {{filmSchedule.ticketPrice.price}}
+            </td>
+            <td>
+              {{filmSchedule.time.nameTime}}
+            </td>
+            <td class="action">
+              <a title="Xóa" (click)="goToDelete(filmSchedule)"><i class="mdi btn-delete mdi-delete"></i></a>
+              <a title="Cập nhật" [routerLink]="['/basic-ui/ql-filmSchedule/update', filmSchedule.id]"><i class="mdi btn-update mdi-bookmark-plus"></i></a>
+            </td>
+          </tr>
+
+          </tbody>
+        </table>
+        <div class="phantrang">
+          <pagination-controls id="listing_pagination" maxSize="5"  directionLinks="true" (pageChange)="page = $event" ></pagination-controls>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+</div>
+<br>
+

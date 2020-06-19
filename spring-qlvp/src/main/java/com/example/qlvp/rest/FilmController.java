@@ -1,6 +1,7 @@
 package com.example.qlvp.rest;
 
 
+
 import com.example.qlvp.entities.Category;
 import com.example.qlvp.entities.Cinema;
 import com.example.qlvp.entities.Film;
@@ -104,5 +105,6 @@ public class FilmController {
         filmService.delete(id);
         return new ResponseEntity<>(HttpStatus.OK);
     }
+
 
 }
