@@ -1,21 +1,16 @@
+
+
 export class FilmModel {
   id?: number;
-
   name?: string;
-
   cast?: string;
-
   image?: string;
-
   yearProduce?: number;
-
-  decription?: any;
+  description?: string;
   trailer?: string;
-
-  time?: number;
   language?: string;
+  userName?: string;
+  time?: number;
+  categories?: any = [];
 
-  createdate?: Date;
-
-  username?: string;
 }

@@ -1,5 +1,6 @@
 package com.example.qlvp.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 
 import javax.persistence.*;
@@ -22,7 +23,8 @@ public class Seat {
     @Column(name = "STATUS")
     private long status;
 
+
     @OneToOne
-    @JoinColumn(name = "ROOM_ID")
-    Room room;
+    @JoinColumn(name= "ROOM_ID")
+    private Room room;
 }

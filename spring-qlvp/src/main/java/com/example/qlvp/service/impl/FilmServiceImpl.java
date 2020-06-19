@@ -1,4 +1,7 @@
-package com.example.qlvp.service.impl;
+
+
+package com.example.qlvp.service.Ipml;
+
 
 import com.example.qlvp.entities.Film;
 import com.example.qlvp.repository.FilmRepository;
@@ -10,11 +13,15 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.List;
 import java.util.Optional;
 
-@Service
+
 @Transactional
+@Service
 public class FilmServiceImpl implements FilmService {
+
     @Autowired
-    FilmRepository filmRepository;
+    private FilmRepository filmRepository;
+
+
     @Override
     public List<Film> findAll() {
         return filmRepository.findAll();
@@ -22,16 +29,22 @@ public class FilmServiceImpl implements FilmService {
 
     @Override
     public Film save(Film film) {
-        return null;
+
+        return filmRepository.save(film);
+
     }
 
     @Override
     public void update(Film film) {
 
+        filmRepository.save(film);
+
     }
 
     @Override
     public void delete(Long id) {
+
+        filmRepository.deleteById(id);
 
     }
 

@@ -65,7 +65,7 @@ export class RoomCreateComponent implements OnInit {
 
   doSubmit() {
     const room = this.form.value;
-    console.log(room)
+    console.log(room);
     if (this.isUpdate) {
 
       this.roomService.update(room).subscribe(

@@ -27,6 +27,7 @@ export class SeatListComponent implements OnInit {
 
     this.loadSeat();
     this.eventManagement.subscribe('UPDATE_SEAT', () => this.loadSeat());
+
     this.totalRecords = this.seats.length;
 
   }

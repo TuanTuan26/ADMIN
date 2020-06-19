@@ -1,0 +1,72 @@
+
+
+<div class="col-md-12">
+  <h3>Form create(update) film</h3>
+  <form  class="col-md-12" [noValidate]="true" [formGroup]="form" (ngSubmit)="doSubmit()">
+
+    <div class="form-group">
+      <label for="name">Name</label>
+      <input type="text" class="form-control" id="name" formControlName="name" placeholder="Name" required>
+    </div>
+    <div class="form-group">
+      <label for="cast">Diễn viên</label>
+      <input type="email" class="form-control" id="cast"  formControlName="cast" placeholder="Email" required>
+    </div>
+    <div class="form-group">
+      <label>Hình ảnh</label>
+      <div class="input-group col-xs-12">
+        <label for="image" class="btn btn-default">
+          <input type="file" id="image" (change)="selectFiles($event)">
+          <input type="hidden" name="fileHidden"  formControlName="image" />
+        </label>
+        <span class="input-group-append">
+          <button class="btn btn-success"
+          [disabled]="!selectedFiles"
+          (click)="uploadFiles()">Upload</button>
+        </span>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="yearProduce">Năm sản xuất</label>
+      <input type="number" min=0 class="form-control" id="yearProduce" formControlName="yearProduce" placeholder="Năm sản xuất">
+    </div>
+
+    <div class="form-group">
+      <label for="description">Mô tả</label>
+      <ckeditor [editor]="Editor" formControlName="description" id="description" (change)="onChange($event)" required></ckeditor>
+    </div>
+    <div class="form-group">
+      <label for="trailer">Trailer</label>
+      <input type="text" class="form-control" id="trailer" formControlName="trailer" placeholder="Trailer" required>
+    </div>
+    <div class="form-group">
+      <label for="time">Thời lượng</label>
+      <input type="number" min=0 class="form-control" id="time" formControlName="time" placeholder="Time" required>
+    </div>
+    <div class="form-group">
+      <label for="language">Ngôn ngữ</label>
+      <input type="text" class="form-control" id="language"  formControlName="language" placeholder="Language" required>
+    </div>
+    <div class="form-group">
+      <label for="categories">Chọn danh mục: &nbsp;</label><br>
+      <mat-form-field>
+        <mat-label>Toppings</mat-label>
+        <mat-select formControlName="categories" multiple>
+          <mat-option *ngFor="let category of categories" [value]="category.id">{{category.name }}</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <!-- <select multiple  id="categories" formControlName="categories">
+        <option *ngFor="let category of categories" [ngValue]="category.id" >{{category.name}}</option>
+     </select> -->
+
+
+  </div>
+    <div>
+      <button class="btn btn-outline-primary btn-sm" type="submit"  *ngIf="!isUpdate && !isLoad">Save</button>
+      <button class="btn btn-outline-primary btn-sm" type="submit" *ngIf="isUpdate">Update</button>
+      <button class="btn btn-sm" [routerLink]="['/basic-ui/ql-cinema']">Cancel</button>
+    </div>
+  </form>
+</div>
+
+

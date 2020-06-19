@@ -1,8 +1,10 @@
 import { Injectable } from '@angular/core';
-import {HttpClient} from '@angular/common/http';
-import {Observable} from 'rxjs';
-import {ENDPOINT_URL} from '../constants/app.constants';
-import {FilmModel} from '../model/Film';
+
+import { HttpClient } from '@angular/common/http';
+import { FilmModel } from '../model/Film';
+import { Observable } from 'rxjs';
+import { ENDPOINT_URL } from '../constants/app.constants';
+
 
 @Injectable({
   providedIn: 'root'
@@ -11,20 +13,23 @@ export class FilmService {
 
   constructor(private http: HttpClient) { }
   fetch(): Observable<FilmModel[]> {
-    return this.http.get<FilmModel[]>(`${ENDPOINT_URL}/films`);
+    return this.http.get<FilmModel[]>(`${ENDPOINT_URL}/film`);
   }
 
   findOne(id: any): Observable<FilmModel> {
-    return this.http.get<FilmModel>(`${ENDPOINT_URL}/films/${id}`);
-  }
-  delete(id: number) {
-    return this.http.delete(`${ENDPOINT_URL}/films/${id}`);
-  }
-  create(id: any, filmModel: FilmModel): Observable<FilmModel> {
-    return this.http.post<FilmModel>(`${ENDPOINT_URL}/films/${id}`, filmModel);
+    return this.http.get<FilmModel>(`${ENDPOINT_URL}/film/${id}`);
   }
 
-  update(id: any, filmModel: FilmModel) {
-    return this.http.put(`${ENDPOINT_URL}/films/${id}`, filmModel);
+  create(film: FilmModel): Observable<FilmModel> {
+    return this.http.post<FilmModel>(`${ENDPOINT_URL}/film`, film);
+  }
+
+  update(film: FilmModel) {
+    return this.http.put(`${ENDPOINT_URL}/film`, film);
+  }
+
+  delete(id: number) {
+    return this.http.delete(`${ENDPOINT_URL}/film/${id}`);
+
   }
 }

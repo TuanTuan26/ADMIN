@@ -4,6 +4,7 @@ import lombok.Data;
 
 import javax.persistence.*;
 import java.util.Date;
+import java.util.HashSet;
 import java.util.Set;
 
 @Entity
@@ -47,7 +48,9 @@ public class Film {
     @Column(name = "USERNAME")
     private String userName;
 
-    @OneToMany(fetch = FetchType.LAZY)
-    @JoinColumn(name = "ID")
-    Set<FilmCategory> filmCategories;
+    @ManyToMany(fetch = FetchType.LAZY)
+    @JoinTable(	name = "TBL_FILM_CATEGORY",
+            joinColumns = @JoinColumn(name = "FILM_ID"),
+            inverseJoinColumns = @JoinColumn(name = "CATEGORY_ID"))
+    private Set<Category> categories = new HashSet<>();
 }
